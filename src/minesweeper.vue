@@ -68,6 +68,13 @@
 				this.parameters = params;
 				this.newGame();
 			},
+			load(id) {
+				this.$http.get('/api/games/' + id).then((response) => {
+		            this.squares = response.data.squares;
+		            this.id = response.data.id;
+		            this.isGameFinished(response.data.over, response.data.won);
+		        });
+			},
 			reveal(id){
 				const url = '/api/games/' + this.id + '/squares/' + id + '/reveal';
 
@@ -80,6 +87,7 @@
 		mounted() {
 			bus.$on('reveal', info => this.reveal(info));
 			bus.$on('play', info => this.play(info));
+			bus.$on('load', info => this.load(info));
 		}
 	}
 </script>

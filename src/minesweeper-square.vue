@@ -49,9 +49,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border: 1px solid #eee;
+		border: 1px solid #ccc;
+		background-color: #eee;
 	}
 	.button {
   		border: none;
+  		background-color: #FFF;
   	}
 </style>

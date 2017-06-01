@@ -15,4 +15,4 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+> DEV version assumes you have the minesweeper API running in port 8000. You may change it in webpack config file.

@@ -15,6 +15,14 @@
 		<div class="form-group no-margin">
 			<button class="btn btn-info" @click="play" :disabled="waiting">PLAY</button>
 		</div>
+		<hr />
+		<div class="form-group">
+		    <label for="id">Game ID to load</label>
+		    <input type="number" class="form-control" id="id" v-model="id">
+		</div>
+		<div class="form-group no-margin">
+			<button class="btn btn-info" @click="load" :disabled="waiting">LOAD</button>
+		</div>
 	</div>
 </template>
 <script>
@@ -24,6 +32,7 @@
 		name: 'minesweeper-home',
 		data() {
 			return {
+				id: 0,
 				mines: 10,
 				columns: 10,
 				rows: 10,
@@ -43,6 +52,10 @@
 			play() {
 				this.waiting = true;
 				bus.$emit('play', this.parameters);
+			},
+			load() {
+				this.waiting = true;
+				bus.$emit('load', this.id);
 			}
 		}
 	}
